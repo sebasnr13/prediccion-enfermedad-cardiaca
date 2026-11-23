@@ -11,7 +11,7 @@ Desarrollar y evaluar, con fines académicos, un proceso de clasificación binar
 - `app.py`: aplicación web desarrollada con Streamlit.
 - `patient_dataset.csv`: conjunto de datos de 6.000 registros.
 - `pipeline_heart_disease.joblib`: pipeline serializado con preprocesamiento y Árbol de Decisión.
-- `rubrica3_auditoria_final.ipynb`: notebook disponible actualmente en el repositorio, con entrenamiento, evaluación y auditoría.
+- `rubrica3_proyecto_final (1).ipynb`: notebook disponible actualmente en el repositorio, con entrenamiento, evaluación y auditoría.
 - `requirements.txt`: dependencias para ejecutar la aplicación, incluida scikit-learn 1.6.1.
 
 ## Ejecutar localmente
