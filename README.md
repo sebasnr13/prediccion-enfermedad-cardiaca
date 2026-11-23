@@ -41,6 +41,20 @@ El modelo seleccionado fue un **Árbol de Decisión**, optimizado por F1-score m
 
 El modelo produjo 575 falsos positivos y 41 falsos negativos. La auditoría mediante permutación de etiquetas con Regresión Logística obtuvo un valor p aproximado de 0,4194. Estos resultados no respaldan una capacidad predictiva suficiente para uso clínico.
 
+## Revisión de calidad del modelado (umbral del 70 %)
+El rendimiento final quedó por debajo del umbral de revisión del curso (**accuracy: 48,67 %; F1-score: 64,39 %**). Este umbral indica que debe auditarse el proceso; no implica que sea correcto modificar los resultados hasta superar el 70 %.
+
+La revisión documentada en el proyecto comprende:
+- **Datos y preparación:** revisión de valores faltantes, duplicados y registros atípicos; imputación numérica por mediana y categórica por moda.
+- **Entrenamiento y prueba:** separación estratificada 80/20 y transformaciones integradas en el pipeline para reducir el riesgo de fuga de información.
+- **Validación y ajustes:** validación cruzada de cinco particiones, comparación de modelos y búsqueda de hiperparámetros mediante GridSearchCV con F1-score.
+- **Desbalance:** distribución de clases cercana al equilibrio (3.011 frente a 2.989).
+- **Errores y generalización:** revisión de métricas, matriz de confusión, comparación entrenamiento/prueba y prueba de permutación de etiquetas.
+
+**Comprobaciones pendientes de confirmar en la versión ejecutada del notebook:** análisis de colinealidad entre variables numéricas y ejecución completa, sin errores, de las nuevas celdas de auditoría. La presencia de una celda en el notebook no equivale a evidencia de que se haya ejecutado correctamente.
+
+La elevada sensibilidad para la clase positiva (recall de 93,14 %) convive con un número muy alto de falsos positivos y un rendimiento global cercano al azar. **No hay evidencia de validez clínica.**
+
 ## Pruebas funcionales documentadas
 1. **Entrada válida:** el formulario generó clase 1 con probabilidad estimada de 50,2 %.
 2. **Entrada inválida:** al intentar ingresar edad -5 se observó una indicación visual de valor fuera del rango. Esta evidencia no comprueba por sí sola que el envío del formulario estuviera bloqueado.
